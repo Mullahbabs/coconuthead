@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // For animated, delay classes (style-based animation)
     const elements = document.querySelectorAll(
-      ".animated, .delay-1, .delay-2, .delay-3"
+      ".animate, .delay-1, .delay-2, .delay-3"
     );
     elements.forEach((element) => {
       const position = element.getBoundingClientRect();
