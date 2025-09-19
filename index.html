@@ -474,61 +474,6 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-      // Animated statistics counter
-      function animateStats() {
-        const statElements = document.querySelectorAll(".stat-number");
-        const speed = 200; // The lower the slower
-
-        statElements.forEach((statElement) => {
-          const target = parseInt(statElement.getAttribute("data-target"));
-          const count = parseInt(statElement.innerText);
-          const increment = Math.trunc(target / speed);
-
-          if (count < target) {
-            statElement.innerText = count + increment;
-            setTimeout(() => animateStats(), 1);
-          } else {
-            statElement.innerText = target;
-          }
-        });
-      }
-
-      // Animation on scroll
-      function checkScroll() {
-        const statBoxes = document.querySelectorAll(".stat-box");
-        const teamMembers = document.querySelectorAll(".team-member");
-        const timelineItems = document.querySelectorAll(".timeline-item");
-
-        statBoxes.forEach((box) => {
-          const position = box.getBoundingClientRect();
-          if (position.top < window.innerHeight - 100) {
-            box.classList.add("animate");
-          }
-        });
-
-        teamMembers.forEach((member) => {
-          const position = member.getBoundingClientRect();
-          if (position.top < window.innerHeight - 100) {
-            member.classList.add("animate");
-          }
-        });
-
-        timelineItems.forEach((item) => {
-          const position = item.getBoundingClientRect();
-          if (position.top < window.innerHeight - 100) {
-            item.classList.add("animate");
-          }
-        });
-      }
-
-      // Initialize animations when page loads
-      window.addEventListener("load", () => {
-        animateStats();
-        window.addEventListener("scroll", checkScroll);
-        checkScroll(); // Check initial state
-      });
-    </script>
 
     <script>
       // Modal functionality
