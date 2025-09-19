@@ -199,3 +199,37 @@ function animateStats() {
 window.addEventListener("load", () => {
   animateStats();
 });
+
+// Animation on scroll
+function checkScroll() {
+  const cards = document.querySelectorAll(".value-card");
+
+  cards.forEach((card, index) => {
+    const position = card.getBoundingClientRect();
+
+    // If element is in viewport
+    if (position.top < window.innerHeight - 100) {
+      // Add delay based on index for staggered animation
+      card.style.transition =
+        "opacity 0.5s ease " +
+        index * 0.2 +
+        "s, transform 0.5s ease " +
+        index * 0.2 +
+        "s";
+      card.classList.add("animate");
+    }
+  });
+}
+
+// Initialize animations when page loads
+window.addEventListener("load", function () {
+  // Set initial state for animated elements
+  document.querySelectorAll(".value-card").forEach((card) => {
+    card.style.opacity = 0;
+    card.style.transform = "translateY(30px)";
+  });
+
+  // Check scroll position for animation
+  window.addEventListener("scroll", checkScroll);
+  checkScroll(); // Check initial state
+});

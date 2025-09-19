@@ -168,6 +168,157 @@
       </div>
     </section>
 
+    <section class="projects-section">
+      <div class="section-title">
+        <h2>Our Recent Projects</h2>
+        <p>
+          See how we're making a difference in communities around the world
+          through our initiatives
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div
+          class="project-card"
+          data-video="https://www.youtube.com/embed/9xwazD5SyVg"
+          data-title="Clean Water Initiative"
+          data-desc="We provided clean drinking water to over 10,000 people in rural communities by installing water filtration systems and training local technicians to maintain them."
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Clean Water Project"
+            />
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Clean Water Initiative</h3>
+            <p class="project-desc">
+              Providing access to clean drinking water in underserved
+              communities across Africa.
+            </p>
+            <div class="project-meta">
+              <span><i class="far fa-calendar"></i> June 2023</span>
+              <span><i class="fas fa-map-marker-alt"></i> Kenya, Africa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div
+          class="project-card"
+          data-video="https://www.youtube.com/embed/6zJS6CRfPXw"
+          data-title="Education for All"
+          data-desc="Our education initiative has established 15 new schools and provided scholarships to 500 children in remote areas, focusing on STEM education and digital literacy."
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Education Project"
+            />
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Education for All</h3>
+            <p class="project-desc">
+              Building schools and providing educational resources to children
+              in remote areas.
+            </p>
+            <div class="project-meta">
+              <span><i class="far fa-calendar"></i> April 2023</span>
+              <span><i class="fas fa-map-marker-alt"></i> Nepal, Asia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div
+          class="project-card"
+          data-video="https://www.youtube.com/embed/6ACl8s_tBzE"
+          data-title="Homeless Shelter Program"
+          data-desc="We've established 5 new shelters providing safe accommodation, meals, and counseling services to over 1,200 homeless individuals, with job training programs that have helped 300 people find employment."
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Shelter Project"
+            />
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Homeless Shelter Program</h3>
+            <p class="project-desc">
+              Creating safe spaces and providing support for homeless
+              individuals in urban areas.
+            </p>
+            <div class="project-meta">
+              <span><i class="far fa-calendar"></i> March 2023</span>
+              <span><i class="fas fa-map-marker-alt"></i> Chicago, USA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div
+          class="project-card"
+          data-video="https://www.youtube.com/embed/6ZfuNTqbHE8"
+          data-title="Medical Outreach"
+          data-desc="Our mobile medical clinics have provided free healthcare services to over 8,000 people in remote villages, including vaccinations, maternal care, and treatment for preventable diseases."
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Medical Project"
+            />
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Medical Outreach</h3>
+            <p class="project-desc">
+              Bringing healthcare services to remote communities with limited
+              access to medical facilities.
+            </p>
+            <div class="project-meta">
+              <span><i class="far fa-calendar"></i> May 2023</span>
+              <span><i class="fas fa-map-marker-alt"></i> Amazon, Brazil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal" id="videoModal">
+        <div class="modal-content">
+          <div class="modal-close">
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="modal-iframe-container">
+            <iframe
+              id="ytplayer"
+              width="100%"
+              height="100%"
+              src=""
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="modal-info">
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <p class="modal-desc" id="modalDesc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <div class="footer-wave">
         <svg
@@ -376,6 +527,57 @@
         animateStats();
         window.addEventListener("scroll", checkScroll);
         checkScroll(); // Check initial state
+      });
+    </script>
+
+    <script>
+      // Modal functionality
+      const modal = document.getElementById("videoModal");
+      const ytplayer = document.getElementById("ytplayer");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDesc");
+      const closeModal = document.querySelector(".modal-close");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      // Open modal when project card is clicked
+      projectCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const videoSrc = card.getAttribute("data-video");
+          const title = card.getAttribute("data-title");
+          const desc = card.getAttribute("data-desc");
+
+          ytplayer.src = videoSrc;
+          modalTitle.textContent = title;
+          modalDesc.textContent = desc;
+
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden"; // Prevent scrolling
+        });
+      });
+
+      // Close modal when X is clicked
+      closeModal.addEventListener("click", () => {
+        modal.classList.remove("active");
+        ytplayer.src = "";
+        document.body.style.overflow = "auto"; // Enable scrolling
+      });
+
+      // Close modal when clicking outside content
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+          ytplayer.src = "";
+          document.body.style.overflow = "auto";
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          modal.classList.remove("active");
+          ytplayer.src = "";
+          document.body.style.overflow = "auto";
+        }
       });
     </script>
   </body>
