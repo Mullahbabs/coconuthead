@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     statBoxes.forEach((box) => {
       const position = box.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
-        box.classList.add("animate");
+        box.classList.add("");
       }
     });
 
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     teamMembers.forEach((member) => {
       const position = member.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
-        member.classList.add("animate");
+        member.classList.add("");
       }
     });
 
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     timelineItems.forEach((item) => {
       const position = item.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
-        item.classList.add("animate");
+        item.classList.add("");
       }
     });
 
@@ -142,12 +142,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const position = card.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
         card.style.transition =
-          "opacity 0.5s ease " +
+          "opacity 0.2s ease " +
           index * 0.2 +
-          "s, transform 0.5s ease " +
+          "s, transform 0.2s ease " +
           index * 0.2 +
           "s";
-        card.classList.add("animate");
+        card.classList.add("");
       }
     });
   }
