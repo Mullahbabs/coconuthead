@@ -81,15 +81,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Set initial styles for animated elements
   function setInitialStyles() {
-    document
-      .querySelectorAll(".animated, .delay-1, .delay-2, .delay-3")
-      .forEach((element) => {
-        element.style.opacity = 0;
-        element.style.transform = "translateY(20px)";
-        element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-      });
+    document.querySelectorAll("").forEach((element) => {
+      element.style.opacity = 0;
+      element.style.transform = "translateY(20px)";
+      element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    });
 
-    document.querySelectorAll(".value-card").forEach((card) => {
+    document.querySelectorAll("").forEach((card) => {
       card.style.opacity = 0;
       card.style.transform = "translateY(30px)";
     });
@@ -100,34 +98,32 @@ document.addEventListener("DOMContentLoaded", function () {
   // Animation on scroll (merged all versions)
   function checkScroll() {
     // For stat boxes, team members, timeline items (class-based animation)
-    const statBoxes = document.querySelectorAll(".stat-box");
+    const statBoxes = document.querySelectorAll("");
     statBoxes.forEach((box) => {
       const position = box.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
-        box.classList.add("");
+        box.classList.add("animate");
       }
     });
 
-    const teamMembers = document.querySelectorAll(".team-member");
+    const teamMembers = document.querySelectorAll("");
     teamMembers.forEach((member) => {
       const position = member.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
-        member.classList.add("");
+        member.classList.add("animate");
       }
     });
 
-    const timelineItems = document.querySelectorAll(".timeline-item");
+    const timelineItems = document.querySelectorAll("");
     timelineItems.forEach((item) => {
       const position = item.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
-        item.classList.add("");
+        item.classList.add("animate");
       }
     });
 
     // For animated, delay classes (style-based animation)
-    const elements = document.querySelectorAll(
-      ".animate, .delay-1, .delay-2, .delay-3"
-    );
+    const elements = document.querySelectorAll("");
     elements.forEach((element) => {
       const position = element.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
@@ -137,17 +133,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // For value cards (staggered animation)
-    const cards = document.querySelectorAll(".value-card");
+    const cards = document.querySelectorAll("");
     cards.forEach((card, index) => {
       const position = card.getBoundingClientRect();
       if (position.top < window.innerHeight - 100) {
         card.style.transition =
-          "opacity 0.2s ease " +
+          "opacity 0.5s ease " +
           index * 0.2 +
-          "s, transform 0.2s ease " +
+          "s, transform 0.5s ease " +
           index * 0.2 +
           "s";
-        card.classList.add("");
+        card.classList.add("animate");
       }
     });
   }
