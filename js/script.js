@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
           element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
         });
 
-      document.querySelectorAll(".value-card").forEach((card) => {
+      document.querySelectorAll(".values-card").forEach((card) => {
         card.style.opacity = 0;
         card.style.transform = "translateY(30px)";
       });
@@ -190,6 +190,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Animation on scroll
     function checkScroll() {
+      statBoxes.forEach((box) => {
+        const position = box.getBoundingClientRect();
+        if (position.top < window.innerHeight - 100) {
+          box.classList.add("animate");
+        }
+      });
       // For stat boxes, team members, timeline items
       const statBoxes = document.querySelectorAll(".stat-box");
       statBoxes.forEach((box) => {
@@ -212,18 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const position = item.getBoundingClientRect();
         if (position.top < window.innerHeight - 100) {
           item.classList.add("animate");
-        }
-      });
-
-      // For animated, delay classes
-      const elements = document.querySelectorAll(
-        ".animate, .delay-1, .delay-2, .delay-3"
-      );
-      elements.forEach((element) => {
-        const position = element.getBoundingClientRect();
-        if (position.top < window.innerHeight - 100) {
-          element.style.opacity = 1;
-          element.style.transform = "translateY(0)";
         }
       });
 
